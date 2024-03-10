@@ -24,7 +24,7 @@ count_t word_count(FILE* fp, long offset, long size)
 
 		if(fseek(fp, offset, SEEK_SET) < 0) {
 				printf("[pid %d] fseek error!\n", getpid());
-		}
+		} // if
 
 		while ((ch=getc(fp)) != EOF && rbytes < size) {
 				// Increment character count if NOT new line or space
@@ -36,14 +36,13 @@ count_t word_count(FILE* fp, long offset, long size)
 				// Increment line count if new line character
 				if (ch == '\n') { ++count.linecount; }
 				rbytes++;
-		}
+		} // while
 
 		srand(getpid());
 		if(crashRate > 0 && (rand()%100 < crashRate))
 		{
 				printf("[pid %d] crashed.\n", getpid());
 				abort();
-		}
-
+		} // if
 		return count;
-}
+} // word_count
