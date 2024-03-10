@@ -6,7 +6,9 @@ The project architecture revolves around creating multiple child processes to di
 
 ## Functionality
 `wc_core.c`:
-- Implements the `word_count` function, which reads a portion of a file specified by an offset and size, `wc_multi.c`:
+- Implements the `word_count` function, which reads a portion of a file specified by an offset and size, counting lines, words, and characters within that portion.
+
+`wc_multi.c`:
 - Contains the `main` function implementing the multiprocess word counting program.
 - Parses command-line arguments specifying the filename, number of child processes, and crash rate.
 - Creates child processes to distribute the workload of counting words in the file.
